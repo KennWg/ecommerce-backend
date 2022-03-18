@@ -71,15 +71,15 @@ router.put('/:id', (req, res) => {
 
 router.delete('/:id', (req, res) => {
   Category.destroy({
-    where: {id: req.params.id}
+    where: { id: req.params.id }
   })
-  .then(dbData => {
-    if (!dbData) {
-      res.status(404).json({ message: 'No category with this ID found' });
-      return;
-    }
-    res.json(dbData);
-  })
+    .then(dbData => {
+      if (!dbData) {
+        res.status(404).json({ message: 'No category with this ID found' });
+        return;
+      }
+      res.json(dbData);
+    })
     .catch(err => {
       console.log(err);
       res.status(500).json(err);
