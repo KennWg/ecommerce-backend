@@ -8,8 +8,8 @@ router.get('/', (req, res) => {
       {
         model: Product,
         attributes: ['id', 'product_name', 'price', 'stock'],
-        through: ProductTag,
-        as: 'tagged_product'
+        through: { model: ProductTag, attributes: []},
+        as: 'tagged_products'
       }
     ]
   }).then(dbData => res.json(dbData))
@@ -27,8 +27,8 @@ router.get('/:id', (req, res) => {
       {
         model: Product,
         attributes: ['id', 'product_name', 'price', 'stock'],
-        through: ProductTag,
-        as: 'tagged_product'
+        through: { model: ProductTag, attributes: []},
+        as: 'tagged_products'
       }
     ]
   }).then(dbData => {
